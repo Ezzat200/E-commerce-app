@@ -2,11 +2,9 @@ import 'package:bloc/bloc.dart';
 import 'package:e_commerce_app/core/utils/approuter.dart';
 
 import 'package:e_commerce_app/data/datasource/static/static.dart';
-import 'package:e_commerce_app/view/screens/auth/loginscreen.dart';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:path/path.dart';
 
 
 part 'onbording_state.dart';
@@ -42,7 +40,7 @@ class OnbordingCubit extends Cubit<OnbordingState> {
 
   @override
   Future<void> close() {
-    pageController.dispose(); // Dispose of the PageController when the cubit is closed
+    pageController.dispose(); 
     return super.close();
   }
 }
