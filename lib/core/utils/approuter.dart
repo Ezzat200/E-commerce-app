@@ -51,7 +51,7 @@ abstract class Approuter{
     GoRoute(
       path: KVerfiyCode,
       builder: (context, state) {
-        return const VerfiycodeScreen();
+        return const VerfiycodeScreen ();
       },
     ),
     ]);
