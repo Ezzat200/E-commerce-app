@@ -5,8 +5,10 @@ import 'package:flutter/material.dart';
 class CustomButtonAuth extends StatelessWidget {
   const CustomButtonAuth({
     super.key, required this.name,
+    required this.onPressed,
   });
 final String name;
+final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,7 +17,7 @@ final String name;
         borderRadius: BorderRadius.circular(20),
       color: AppColor.primaryColor,
       ),
-      child: MaterialButton(onPressed: (){},child:  Text(name,style:const TextStyle(color: Colors.white),),));
+      child: MaterialButton(onPressed: onPressed,child:  Text(name,style:const TextStyle(color: Colors.white),),));
   }
 }
 

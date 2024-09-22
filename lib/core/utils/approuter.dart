@@ -1,8 +1,9 @@
-import 'package:e_commerce_app/view/screens/auth/forgetPasswrod.dart';
+import 'package:e_commerce_app/view/screens/auth/forgetScreens/forgetPasswrod.dart';
 import 'package:e_commerce_app/view/screens/auth/loginscreen.dart';
-import 'package:e_commerce_app/view/screens/auth/resetPassword.dart';
+import 'package:e_commerce_app/view/screens/auth/forgetScreens/resetPassword.dart';
 import 'package:e_commerce_app/view/screens/auth/signupScreen.dart';
-import 'package:e_commerce_app/view/screens/auth/verfiycode.dart';
+import 'package:e_commerce_app/view/screens/auth/forgetScreens/verfiycode.dart';
+import 'package:e_commerce_app/view/screens/auth/sucsess_signup.dart';
 import 'package:e_commerce_app/view/screens/onbording_screen.dart';
 import 'package:go_router/go_router.dart';
 
@@ -12,6 +13,8 @@ abstract class Approuter{
   static const KFrogetPassword='/frogetPassword';
   static const KResetPassword='/resetPassword';
   static const KVerfiyCode='/verfiyCode';
+  static const KSuccessSignup='/KsuccessSignup';
+
 
 
 
@@ -52,6 +55,12 @@ abstract class Approuter{
       path: KVerfiyCode,
       builder: (context, state) {
         return const VerfiycodeScreen ();
+      },
+    ),
+     GoRoute(
+      path: KSuccessSignup,
+      builder: (context, state) {
+        return const SuccessSignup ();
       },
     ),
     ]);

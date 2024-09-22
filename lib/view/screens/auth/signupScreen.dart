@@ -52,14 +52,19 @@ class SignUpScreen extends StatelessWidget {
                     
                       
             
-                    const  CustomButtonAuth(name: 'Continue',),
+                      CustomButtonAuth(
+                        onPressed: () {
+                      context.go(Approuter.KSuccessSignup);
+                          
+                        },
+                        name: 'Continue',),
                     
                     
                     
                     const SizedBox(height: 30,),
                    CustomTextSignupOrSignin(
                     textOne: 'already have an account? ',
-                    textTwo: 'Sign Up',
+                    textTwo: 'Sign in',
             onPressed: () {
                       context.go(Approuter.KLoginScreen);
               

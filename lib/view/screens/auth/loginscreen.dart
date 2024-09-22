@@ -16,88 +16,92 @@ class LoginScreen extends StatelessWidget {
     TextEditingController? controller=TextEditingController();
     return  Scaffold(
       body: SafeArea(
-        child: Column(
-          children:[
-             const SizedBox(height: 20,),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children:[
-                      
-                      Text('Sign in', style: TextStyle(fontSize: 20, color: Colors.black),)
-                  ]
-                ),
-             const SizedBox(height: 10,),
+        child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 30),
 
-            Container(
-              child: Image.asset('assets/images/logo.png',width: 100,),
-            ),
-            const SizedBox(height: 20,),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Expanded(
-              child: ListView(
-                shrinkWrap: true,
-                children: [
-                    const CustomTextTitleAuth(titleText: 'Welcom Back',),
-                const SizedBox(height: 20,),
-                
-                const CustomTextBodyAuth(tetxBody: 'Sign In With Email and Password OR Cpntinue With Social Media ' ,),
-              
-                const SizedBox(height: 100,),
-              
-                
-                       CustomTextField(
-                       controller:controller,
-                        hintText: 'Enter Your Email',labelText: 'Email',iconData: Icons.email_outlined,),
-                  const SizedBox(height: 20,),
-                   CustomTextField(
-                       controller:controller,
-                     
-                    hintText: 'Enter Your Password',labelText: 'Password',iconData: Icons.password  ,),
-            const SizedBox(height: 20,),
-                
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [Row(
-                
-                      children: [
-                        Checkbox(value: false, onChanged: (value) {}),
-                        const Text('Remember me')
-                      ],
-                      
+          child: SingleChildScrollView(
+            child: Column(
+              children:[
+                 const SizedBox(height: 20,),
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children:[
+                          
+                          Text('Sign in', style: TextStyle(fontSize: 20, color: Colors.black),)
+                      ]
                     ),
-                    TextButton(onPressed: (){
-                      context.go(Approuter.KFrogetPassword);
-                    }, child: const Text(
-                      style: TextStyle(
-                        color: Colors.blue,
-                        fontSize: 16,
-                         decoration: TextDecoration.underline,
+                 const SizedBox(height: 10,),
+            
+                Container(
+                  child: Image.asset('assets/images/logo.png',width: 100,),
+                ),
+                const SizedBox(height: 20,),
+             
+               
+                      const CustomTextTitleAuth(titleText: 'Welcom Back',),
+                  const SizedBox(height: 20,),
+                  
+                  const CustomTextBodyAuth(tetxBody: 'Sign In With Email and Password OR Cpntinue With Social Media ' ,),
+                
+                  const SizedBox(height: 100,),
+                
+                  
+                         CustomTextField(
+                         controller:controller,
+                          hintText: 'Enter Your Email',labelText: 'Email',iconData: Icons.email_outlined,),
+                    const SizedBox(height: 20,),
+                     CustomTextField(
+                         controller:controller,
+                       
+                      hintText: 'Enter Your Password',labelText: 'Password',iconData: Icons.password  ,),
+                            const SizedBox(height: 20,),
+                  
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [Row(
+                  
+                        children: [
+                          Checkbox(value: false, onChanged: (value) {}),
+                          const Text('Remember me')
+                        ],
+                        
                       ),
-                      'Forgot Password')),
+                      TextButton(onPressed: (){
+                        context.go(Approuter.KFrogetPassword);
+                      }, child: const Text(
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontSize: 16,
+                           decoration: TextDecoration.underline,
+                        ),
+                        'Forgot Password')),
+                  
+                      ],
+                    ),
+                            const SizedBox(height: 40,),
                 
-                    ],
-                  ),
-            const SizedBox(height: 40,),
-
-                const  CustomButtonAuth(name: 'Continue',),
-                
-                
-                
-                const SizedBox(height: 30,),
-                   CustomTextSignupOrSignin(
-                textOne: 'dont have an account? ',
-                textTwo: 'Sign in',
-                onPressed: () {
-                  context.go(Approuter.KSignUpScreen);
-                },
-               )
-                ],
-              ),
-            ),
-          )
-          ]
-         ),
+                    CustomButtonAuth(
+                      onPressed: () {
+                        
+                      },
+                      name: 'Continue',),
+                  
+                  
+                  
+                  const SizedBox(height: 30,),
+                     CustomTextSignupOrSignin(
+                  textOne: 'dont have an account? ',
+                  textTwo: 'Sign in',
+                  onPressed: () {
+                    context.go(Approuter.KSignUpScreen);
+                  },
+                 )
+                  
+              
+              ]
+             ),
+          ),
+        ),
       )
 
         
