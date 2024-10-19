@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:e_commerce_app/core/services/cubit/services.dart';
 import 'package:e_commerce_app/core/utils/approuter.dart';
 
 import 'package:e_commerce_app/data/datasource/static/static.dart';
@@ -16,7 +17,7 @@ class OnbordingCubit extends Cubit<OnbordingState> {
 
   late PageController pageController;
   int currentIndex = 0;
-
+   
   void changePage(int index) {
     currentIndex = index;
     emit(OnbordingChangePageState(index: index));
@@ -26,6 +27,10 @@ class OnbordingCubit extends Cubit<OnbordingState> {
     // Check if the current page is the last one
       currentIndex++;
     if (currentIndex > onBordingList.length - 1) {
+      sharedPreferences?.setString('onBording', '1');
+      print(sharedPreferences?.getString('onBording' ));
+     
+
     context.go(Approuter.KLoginScreen);
       
     }else{
