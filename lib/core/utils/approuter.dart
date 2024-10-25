@@ -1,10 +1,11 @@
-import 'package:e_commerce_app/view/screens/auth/forgetScreens/forgetPasswrod.dart';
-import 'package:e_commerce_app/view/screens/auth/loginscreen.dart';
-import 'package:e_commerce_app/view/screens/auth/forgetScreens/resetPassword.dart';
-import 'package:e_commerce_app/view/screens/auth/signupScreen.dart';
-import 'package:e_commerce_app/view/screens/auth/forgetScreens/verfiycode.dart';
-import 'package:e_commerce_app/view/screens/auth/sucsess_signup.dart';
+import 'package:e_commerce_app/view/screens/auth/view/forgetScreens/forgetPasswrod.dart';
+import 'package:e_commerce_app/view/screens/auth/view/loginscreen.dart';
+import 'package:e_commerce_app/view/screens/auth/view/forgetScreens/resetPassword.dart';
+import 'package:e_commerce_app/view/screens/auth/view/signupScreen.dart';
+import 'package:e_commerce_app/view/screens/auth/view/forgetScreens/verfiycode.dart';
+import 'package:e_commerce_app/view/screens/auth/view/sucsess_signup.dart';
 import 'package:e_commerce_app/view/screens/onbording_screen.dart';
+import 'package:e_commerce_app/view/screens/test.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class Approuter{
@@ -24,7 +25,7 @@ abstract class Approuter{
  GoRoute(
       path: '/',
       builder: (context, state) {
-        return const OnbordingScreen();
+        return const SignUpScreen();
       },
     ),
      GoRoute(
