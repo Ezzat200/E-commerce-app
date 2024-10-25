@@ -57,10 +57,12 @@ dependencies:
   google_maps_flutter: ^2.9.0
   google_sign_in: ^6.2.1
   grouped_list: ^6.0.0
+  http: ^1.2.2
   image_picker: ^1.1.2
   image_pickers: ^2.0.5+2
   intl: ^0.19.0
   jiffy: ^6.3.1
+  lottie: ^3.1.3
   path: ^1.9.0
   qr_flutter: ^4.1.0
   responsive_builder: ^0.7.1
@@ -89,6 +91,8 @@ flutter:
     - assets/images/
     - assets/fonts/
     - assets/lang/
+    - assets/lottie/
+
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
