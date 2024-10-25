@@ -1,7 +1,6 @@
 import 'package:e_commerce_app/controller/onBording/cubit/onbording_cubit.dart';
 import 'package:e_commerce_app/core/constant/color.dart';
-import 'package:e_commerce_app/data/datasource/static/static.dart';
-import 'package:e_commerce_app/view/screens/auth/loginscreen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
