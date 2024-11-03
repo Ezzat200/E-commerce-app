@@ -1,5 +1,6 @@
-import 'package:e_commerce_app/controller/manager/signup/cubit/sign_up_cubit.dart';
+import 'package:e_commerce_app/controller/manager/auth/cubit/signup/sign_up_cubit.dart';
 import 'package:e_commerce_app/core/utils/approuter.dart';
+import 'package:e_commerce_app/view/screens/auth/view/forgetScreens/verfiycode.dart';
 import 'package:e_commerce_app/view/widgets/auth/customButtonAuth.dart';
 import 'package:e_commerce_app/view/widgets/auth/customTextBodyAuth.dart';
 import 'package:e_commerce_app/view/widgets/auth/customTetxTitleAuth.dart';
@@ -7,6 +8,7 @@ import 'package:e_commerce_app/view/widgets/auth/customTextField.dart';
 import 'package:e_commerce_app/view/widgets/auth/customTextSignupOrSignin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -25,13 +27,18 @@ class SignUpScreen extends StatelessWidget {
         child: BlocConsumer<SignUpCubit, SignUpState>(
           listener: (context, state) {
             if (state is SignUpSuccessful) {
-              context.go(Approuter.KLoginScreen); // Navigate on success
+              // Navigate to the VerifyCode screen on successful signup
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => VerfiycodeScreen(
+                    email: email.text,
+                  ),
+                ),
+              );
             } else if (state is SignUpFailuer) {
-              print(state.mesrrror);
-              // Optionally, display a toast or dialog for failure
+              // Show error message in a SnackBar if signup fails
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text("${state.mesrrror}")),
-                
+                SnackBar(content: Text(state.mesrrror)),
               );
             }
           },
@@ -88,22 +95,17 @@ class SignUpScreen extends StatelessWidget {
                           iconData: Icons.password,
                         ),
                         const SizedBox(height: 20),
-                        if (state is SignUpLoading)
-                          const CircularProgressIndicator()
-                        else
-                          CustomButtonAuth(
-                            onPressed: () {
-                              context.read<SignUpCubit>().signUp(
-                                name.text,
-                                email.text,
-                                phone.text,
-                                password.text,
-                              );
-                            context.go(Approuter.KLoginScreen);
-
-                            },
-                            name: 'Continue',
-                          ),
+                        CustomButtonAuth(
+                          onPressed: () {
+                            context.read<SignUpCubit>().signUp(
+                              name.text,
+                              email.text,
+                              phone.text,
+                              password.text,
+                            );
+                          },
+                          name: 'Continue',
+                        ),
                         const SizedBox(height: 30),
                         CustomTextSignupOrSignin(
                           textOne: 'Already have an account? ',

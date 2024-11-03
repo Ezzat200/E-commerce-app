@@ -16,19 +16,19 @@ class SuccessSignup extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children:[
                           
-                          Text('Forget Password', style: TextStyle(fontSize: 20, color: Colors.black),)
+                          Text('Success', style: TextStyle(fontSize: 20, color: Colors.black),)
                       ],
                     ),
                     const Icon(Icons.check_circle_outline,size: 200,color: AppColor.primaryColor,),
-                    const Text('data'),
+                    const Text('Congratulasions'),
                    const Spacer(),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 30),
-                      child: CustomButtonAuth(name: 'Login', onPressed: () {
+                      child: CustomButtonAuth(name: 'Go To Login', onPressed: () {
                         context.go(Approuter.KLoginScreen);
                       },),
                     ),
-                   const SizedBox(height: 30,)
+                   const SizedBox(height: 50,)
       ],),
     );
   }

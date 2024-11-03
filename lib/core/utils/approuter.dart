@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/view/screens/auth/view/forgetScreens/forgetPasswrod.dart';
+import 'package:e_commerce_app/view/screens/auth/view/home/home_screen.dart';
 import 'package:e_commerce_app/view/screens/auth/view/loginscreen.dart';
 import 'package:e_commerce_app/view/screens/auth/view/forgetScreens/resetPassword.dart';
 import 'package:e_commerce_app/view/screens/auth/view/signupScreen.dart';
@@ -14,7 +15,9 @@ abstract class Approuter{
   static const KFrogetPassword='/frogetPassword';
   static const KResetPassword='/resetPassword';
   static const KVerfiyCode='/verfiyCode';
-  static const KSuccessSignup='/KsuccessSignup';
+  static const KSuccessSignup='/successSignup';
+  static const KHomeScreen='/homeScreen';
+
 
 
 
@@ -25,7 +28,7 @@ abstract class Approuter{
  GoRoute(
       path: '/',
       builder: (context, state) {
-        return const SignUpScreen();
+        return const LoginScreen();
       },
     ),
      GoRoute(
@@ -52,17 +55,23 @@ abstract class Approuter{
         return const ResetpasswordScreen();
       },
     ),
+   
     GoRoute(
-      path: KVerfiyCode,
-      builder: (context, state) {
-        return const VerfiycodeScreen ();
-      },
-    ),
-     GoRoute(
-      path: KSuccessSignup,
-      builder: (context, state) {
-        return const SuccessSignup ();
-      },
-    ),
+  path: KSuccessSignup,
+  builder: (context, state) {
+    return const SuccessSignup();
+  },
+),
+   
+
+    GoRoute(
+  path: KHomeScreen,
+  builder: (context, state) {
+    return const HomeScreen();
+  },
+),
+    
+
+    
     ]);
 }
