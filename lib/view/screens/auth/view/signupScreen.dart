@@ -1,6 +1,6 @@
 import 'package:e_commerce_app/controller/manager/auth/cubit/signup/sign_up_cubit.dart';
 import 'package:e_commerce_app/core/utils/approuter.dart';
-import 'package:e_commerce_app/view/screens/auth/view/forgetScreens/verfiycode.dart';
+import 'package:e_commerce_app/view/screens/auth/view/verfiycode.dart';
 import 'package:e_commerce_app/view/widgets/auth/customButtonAuth.dart';
 import 'package:e_commerce_app/view/widgets/auth/customTextBodyAuth.dart';
 import 'package:e_commerce_app/view/widgets/auth/customTetxTitleAuth.dart';
@@ -93,6 +93,18 @@ class SignUpScreen extends StatelessWidget {
                           hintText: 'Create Your Password',
                           labelText: 'Password',
                           iconData: Icons.password,
+                        ),
+                        const SizedBox(height: 20),
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                context.go(Approuter.KCheckEmail);
+                              },
+                              child: Text("ForgetPassword")),
+                          ],
                         ),
                         const SizedBox(height: 20),
                         CustomButtonAuth(
