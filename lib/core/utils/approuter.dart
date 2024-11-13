@@ -33,7 +33,7 @@ abstract class Approuter{
  GoRoute(
       path: '/',
       builder: (context, state) {
-        return const SignUpScreen();
+        return const HomeScreen();
       },
     ),
      GoRoute(

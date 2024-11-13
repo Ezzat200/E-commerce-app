@@ -57,7 +57,7 @@ class ResetPasswordScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 40),
 
-                        // Password field
+                        
                         CustomTextField(
                           controller: passwordController,
                           hintText: 'Create Your Password',

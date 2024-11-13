@@ -5,6 +5,7 @@ import 'package:e_commerce_app/view/widgets/auth/customTetxTitleAuth.dart';
 import 'package:e_commerce_app/view/widgets/auth/customTextBodyAuth.dart';
 import 'package:e_commerce_app/view/widgets/auth/customTextField.dart';
 import 'package:e_commerce_app/view/widgets/auth/customTextSignupOrSignin.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -47,7 +48,8 @@ class LoginScreen extends StatelessWidget {
                         const CustomTextTitleAuth(titleText: 'Welcome Back'),
                         const SizedBox(height: 20),
                         const CustomTextBodyAuth(
-                          tetxBody: 'Sign Up With Email, Password, Phone, and Username',
+                          tetxBody:
+                              'Sign Up With Email, Password, Phone, and Username',
                         ),
                         const SizedBox(height: 100),
                         CustomTextField(
@@ -64,24 +66,28 @@ class LoginScreen extends StatelessWidget {
                           iconData: Icons.password,
                         ),
                         const SizedBox(height: 20),
-                        
-                            
-                             CustomButtonAuth(
-                                onPressed: () {
-                                  if (emailController.text.isNotEmpty &&
-                                      passwordController.text.isNotEmpty) {
-                                    context.read<LoginCubit>().login(
-                                      emailController.text,
-                                      passwordController.text,
-                                    );
-                                  } else {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(content: Text('Please enter email and password')),
-                                    );
-                                  }
-                                },
-                                name: 'Continue',
-                              ),
+                        CustomButtonAuth(
+                          onPressed: () {
+                            FirebaseMessaging.instance.getToken().then((value) {
+                              print(value);
+                              String? token = value;
+                            });
+                            if (emailController.text.isNotEmpty &&
+                                passwordController.text.isNotEmpty) {
+                              context.read<LoginCubit>().login(
+                                    emailController.text,
+                                    passwordController.text,
+                                  );
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                    content: Text(
+                                        'Please enter email and password')),
+                              );
+                            }
+                          },
+                          name: 'Continue',
+                        ),
                         const SizedBox(height: 30),
                         CustomTextSignupOrSignin(
                           textOne: 'Don\'t have an account? ',
